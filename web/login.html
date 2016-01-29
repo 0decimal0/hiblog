@@ -1,0 +1,60 @@
+<!doctype html>
+<head>
+  <title>Welcome to Hiblog</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width , initial-scale=1">
+  <link rel="stylesheet" href="../resources/css/bootstrap.min.css">
+  <script src="../resources/jquery-2.1.4.min.js"></script>
+  <script src="../resources/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="container" style="position:absolute;top:20%;left:30%;">
+    <ul class="nav nav-tabs" style="border-bottom:0px;">
+      <li class="active"><a data-toggle="tab" href="#home">Login</a></li>
+        <li><a data-toggle="tab" href="#menu1">Sign Up</a></li>
+    </ul>
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+        <form role="form">
+          <div class="row">
+          <div class="form-group col-xs-4">
+            <label for="email">Email:</label>
+            <input type="email"class="form-control" id="email" placeholder="yourname@example.com">
+          </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-xs-4">
+          <label for="password">Password:</label>
+            <input type="password" class="form-control" id="pwd" placeholder="your password">
+          </div>
+          </div>
+          <div class="row">
+          <div class="checkbox">
+            <label><input type="checkbox">Remember me</label>
+          </div>
+          <button type="submit" class="btn btn-default" style="background-color:#0080FF;">Submit</button>
+        </div>
+        </form>
+      </div>
+    <div id="menu1" class="tab-pane fade in active">
+        <form role="form">
+          <div class="row">
+            <div class="form-group col-xs-6">
+              <label for="email">Enter your email</label>
+              <input type="email" class="form-control" id="email">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-xs-6">
+              <label for="password">Enter your password</label>
+              <input type="password" class="form-control" id="pwd">
+              <label for="password">Re-enter your password</label>
+              <input type="password"class="form-control">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-default" style="background-color:#0080FF;">Submit</button>
+        </form>
+    </div>
+  </div>
+</body>
+</html>
