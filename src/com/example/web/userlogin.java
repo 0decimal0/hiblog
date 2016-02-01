@@ -1,7 +1,11 @@
+package com.example.web;
 import java.io.*;
 import java.sql.*;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
+import javax.servlet.*;
+
+import com.example.model.loginmodel;
 
 public class userlogin extends HttpServlet{
   public void doPost(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException{
@@ -9,24 +13,19 @@ public class userlogin extends HttpServlet{
     PrintWriter out = response.getWriter();
 
     String e=request.getParameter("email");
-    String upass= request.getParameter("password");
-    //String repass=request.getParameter("repassword");
+    String country= request.getParameter("country");
 
-    try{
-      String dbURL="jdbc:mysql://localhost:3306/hiblog";
-      String username="root";
-      String password="rohit123";
-
-      Connection con = DriverManager.getConnection(dbURL,username,password);
-      PreparedStatement ps =con.prepareStatement("insert into user values(?,?)");
-      ps.setString(1,e);
-      ps.setString(2,upass);
-      int i = ps.executeUpdate();
-      if(i>0)
-        out.print("congratulations");
+    /*HttpSession session = request.getSession(false);
+    if(session!=null)
+      session.setAttribute("email",e);*/
+    if (loginmodel.validate(e,country)){
+      RequestDispatcher rd = request.getRequestDispatcher("welcome.jsp");
+      rd.forward(request,response);
     }
-    catch(SQLException e2){
-      out.print(e2);
+    else{
+      out.print("OOps");
+      RequestDispatcher rd=request.getRequestDispatcher("login.html");
+      rd.include(request,response);
     }
     out.close();
   }
