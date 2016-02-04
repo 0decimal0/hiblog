@@ -9,19 +9,28 @@
 </head>
 <body>
   <style type="text/css">
+  .buttonholder{
+    text-align:center;
+  }
+/*  .panel-height{
+    height:300px;
+  }*/
   #accountForm{
     position:absolute;
     top:30%;
     left:30%;
   }
+  .panel-default{
+    border-color:#01DF01;
+  }
+  .btn-primary,.btn-primary:hover,.btn-primary:focus,.btn-primary:active{
+    background-color:#01DF01;
+    color:black;
+  }
   </style>
-  <ul class="nav nav-tabs" style="position:absolute;top:20%;left:30%;">
-        <li class="active"><a href="#login" data-toggle="tab">LogIn<i class="fa"></i></a></li>
-            <li><a href="#signup" data-toggle="tab">SignUp<i class="fa"></i></a></li>
-          </ul>
- <form id="accountForm" method="POST" class="form-horizontal">
-   <div class="tab-content">
-     <div class="tab-pane active" id="login">
+ <form id="accountForm" method="post" class="form-horizontal">
+ <div class="panel panel-default">
+   <div class="panel-body panel-height";>
        <div class="form-group">
          <label class="col-xs-6 ">Email</label>
          <div class="col-xs-10">
@@ -39,34 +48,14 @@
            <input type="checkbox">remember me
          </label>
        </div>
-       <div class="form-group">
-         <button type="submit" class="btn btn-primary">Sign in</button>
+       <div class="buttonholder">
+         <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+         <button type="button" class="btn-link">Forgot Password?</button>
        </div>
-     </div>
-     <div class="tab-pane" id="signup">
-       <div class="form-group">
-         <label class="col-xs-6">Enter Email</label>
-         <div class="col-xs-10">
-           <input type="text" class="form-control" name="email">
-         </div>
-       </div>
-       <div class="form-group">
-         <label class="col-xs-6">New Password</label>
-         <div class="col-xs-10">
-           <input type="password" class="form-control" name="newPassword">
-         </div>
-       </div>
-       <div class="form-group">
-         <label class="col-xs-6">Confirm Password</label>
-         <div class="col-xs-10">
-           <input type="password" class="form-control" name="confirmPassword">
-         </div>
-       </div>
-       <div class="form-group">
-         <button type="submit" class="btn btn-primary">Submit</button>
-       </div>
-     </div>
    </div>
- </form>
+ </div>
+ Not registered yet?  <a href="register.html"><strong>Create an account</strong></a>
+  </form>
+
 </body>
 </html>
