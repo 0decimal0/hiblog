@@ -5,7 +5,7 @@ import java.sql.*;
 import javax.servlet.http.*;
 import javax.servlet.ServletException;
 public class loginmodel{
-  public static boolean validate(String email,String country){
+  public static boolean validate(String email,String password){
     Connection con=null;
     Statement stmt = null;
     PreparedStatement ps = null;
@@ -15,14 +15,14 @@ public class loginmodel{
 
     String url = "jdbc:mysql://localhost:3306/hiblog";
     String username="root";
-    String password="rohit123";
+    String pass="rohit123";
     String driver ="com.mysql.jdbc.Driver";
 
     try{
-      con=DriverManager.getConnection(url,username,password);
+      con=DriverManager.getConnection(url,username,pass);
       ps=con.prepareStatement("INSERT INTO user VALUES(?,?)");
       ps.setString(1,email);
-      ps.setString(2,country);
+      ps.setString(2,password);
       ps.executeUpdate();
       ps=con.prepareStatement("select * from user");
       rs=ps.executeQuery();

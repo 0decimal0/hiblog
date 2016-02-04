@@ -13,12 +13,12 @@ public class userlogin extends HttpServlet{
     PrintWriter out = response.getWriter();
 
     String e=request.getParameter("email");
-    String country= request.getParameter("country");
+    String pass= request.getParameter("newPassword");
 
     /*HttpSession session = request.getSession(false);
     if(session!=null)
       session.setAttribute("email",e);*/
-    if (loginmodel.validate(e,country)){
+    if (loginmodel.validate(e,pass)){
       RequestDispatcher rd = request.getRequestDispatcher("welcome.jsp");
       rd.forward(request,response);
     }
