@@ -17,21 +17,17 @@ public class register extends HttpServlet{
     String pass= request.getParameter("newPassword");
 
     if(duplicatelogin.duplicate(e,pass)){
-      out.print("forwarding the request to duplicate.html");
       RequestDispatcher rd=request.getRequestDispatcher("duplicate.html");
       rd.forward(request,response);
-      out.print("request forwarded to duplicate");
     }else{
       if(loginmodel.validate(e,pass)){
-        out.print("forwarding the request to welcomejsp");
         RequestDispatcher rd=request.getRequestDispatcher("welcome.jsp");
         rd.forward(request,response);
       }else{
         RequestDispatcher rd=request.getRequestDispatcher("register.html");
       rd.include(request,response);
       }
-
-      }
+     }
     out.close();
   }
 }
