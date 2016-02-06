@@ -1,0 +1,69 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+  <script src="resources/passmatch.js"></script>
+  <script src="resources/jquery-2.1.4.min.js"></script>
+  <script src="resources/js/bootstrap.min.css"></script>
+</head>
+<body>
+  <style type="text/css">
+  #regForm{
+    position:absolute;
+    top:30%;
+    left:30%;
+   }
+  #panelheading{
+    background-color:#01DF01;
+   }
+  #panelbody{
+    width:300px;
+   }
+  .panel-default{
+    border-color:#01DF01;
+   }
+  .btnholder{
+    color:#01DF01;
+    text-align:center;  
+   }
+  .btn-primary,.btn-primary:hover,.btn-primary:focus,.btn-primary:active{
+    color:black;
+    background-color:#01DF01;
+   }
+   #sorryheader{
+     postion:absolute;
+     top:20%;
+     left:30%;
+     color:#CA1616;
+   }
+  </style>
+  <h1 id="sorryheader">Sorry the email has already been registered before</h1>
+  <form action="register" id="regForm" method="post" class="form-horizontal">
+    <div class="panel panel-default">
+      <div id="panelheading" class="panel-heading">Register yourself</div>
+      <div id="panelbody"class="panel-body ">
+        <div class="form-group">
+          <div class="col-xs-18">
+            <input type="text" class="form-control" name="email"placeholder="Enter your email">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-xs-18">
+            <input type="password" id="newpwd"class="form-control" name="newPassword"placeholder="Enter new password">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-xs-18">
+            <input type="password" id="confirmpwd"class="form-control" name="confirmPassword"placeholder="Confirm the password" onChange ="checkpassmatch();">
+          </div>
+          <div class="registrationFormAlert"id="divcheckpassmatch"></div>
+        </div>
+        <div class="btnholder">
+          <button type="submit" class="btn btn-primary btn-md ">Create</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</body>
+</html>

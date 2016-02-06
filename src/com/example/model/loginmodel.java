@@ -12,6 +12,7 @@ public class loginmodel{
     ResultSet rs=null;
     int count;
     boolean status=false;
+    boolean duplicatestatus=false;
 
     String url = "jdbc:mysql://localhost:3306/hiblog";
     String username="root";
@@ -19,7 +20,7 @@ public class loginmodel{
     String driver ="com.mysql.jdbc.Driver";
 
     try{
-      con=DriverManager.getConnection(url,username,pass);
+        con=DriverManager.getConnection(url,username,pass);
         ps=con.prepareStatement("INSERT INTO user VALUES(?,?)");
         ps.setString(1,email);
         ps.setString(2,password);
@@ -46,13 +47,13 @@ public class loginmodel{
           e.printStackTrace();
         }
       }
-      /*if(rs!=null){
+      if(rs!=null){
         try{
           rs.close();
         }catch (Exception e){
           e.printStackTrace();
         }
-      }*/
+      }
     }
    return status;
   }
