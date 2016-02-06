@@ -7,7 +7,7 @@ import javax.servlet.*;
 
 import com.example.model.loginmodel;
 
-public class userlogin extends HttpServlet{
+public class register extends HttpServlet{
   public void doPost(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException{
     response.setContentType("text/html");
     PrintWriter out = response.getWriter();

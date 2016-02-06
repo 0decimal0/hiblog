@@ -20,13 +20,13 @@ public class loginmodel{
 
     try{
       con=DriverManager.getConnection(url,username,pass);
-      ps=con.prepareStatement("INSERT INTO user VALUES(?,?)");
-      ps.setString(1,email);
-      ps.setString(2,password);
-      ps.executeUpdate();
-      ps=con.prepareStatement("select * from user");
-      rs=ps.executeQuery();
-      status= rs.next();
+        ps=con.prepareStatement("INSERT INTO user VALUES(?,?)");
+        ps.setString(1,email);
+        ps.setString(2,password);
+        ps.executeUpdate();
+        ps=con.prepareStatement("select * from user");
+        rs=ps.executeQuery();
+        status= rs.next();
     }
     catch(Exception e){
       System.out.println(e);
