@@ -1,15 +1,13 @@
-ainprint?<%@ page language="java" contentType="text/html; charset=ISO-8859-1"  
-    pageEncoding="ISO-8859-1"%>  
+ 
 <html>  
   <head>  
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">  
-    <title>Welcome <%=session.getAttribute("email")%></title>  
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">  
+    <title>Welcome </title>  
   </head>  
   <body>  
-        <h3>Login successful!!!</h3>  
+        <h3>registration successful!!!</h3>  
         <h4>  
-              Hello,  
-              <%=session.getAttribute("email")%></h4>  
+              Hello</h4>  
   </body>  
 </html>  
 

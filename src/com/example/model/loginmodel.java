@@ -5,7 +5,7 @@ import java.sql.*;
 import javax.servlet.http.*;
 import javax.servlet.ServletException;
 public class loginmodel{
-  public static boolean validate(String email,String password){
+  public static boolean validate(String name,String email,String password){
     Connection con=null;
     Statement stmt = null;
     PreparedStatement ps = null;
@@ -21,9 +21,10 @@ public class loginmodel{
 
     try{
         con=DriverManager.getConnection(url,username,pass);
-        ps=con.prepareStatement("INSERT INTO user VALUES(?,?)");
-        ps.setString(1,email);
-        ps.setString(2,password);
+        ps=con.prepareStatement("INSERT INTO user VALUES(?,?,?)");
+        ps.setString(1,name);
+        ps.setString(2,email);
+        ps.setString(3,password);
         ps.executeUpdate();
         ps=con.prepareStatement("select * from user");
         rs=ps.executeQuery();

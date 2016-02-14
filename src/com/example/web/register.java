@@ -13,6 +13,7 @@ public class register extends HttpServlet{
     response.setContentType("text/html");
     PrintWriter out = response.getWriter();
 
+    String name=request.getParameter("username");
     String e=request.getParameter("email");
     String pass= request.getParameter("newPassword");
 
@@ -20,7 +21,7 @@ public class register extends HttpServlet{
       RequestDispatcher rd=request.getRequestDispatcher("duplicate.html");
       rd.forward(request,response);
     }else{
-      if(loginmodel.validate(e,pass)){
+      if(loginmodel.validate(name,e,pass)){
         RequestDispatcher rd=request.getRequestDispatcher("welcome.jsp");
         rd.forward(request,response);
       }else{
