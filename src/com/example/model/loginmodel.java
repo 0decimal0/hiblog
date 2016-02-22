@@ -21,11 +21,15 @@ public class loginmodel{
 
     try{
         con=DriverManager.getConnection(url,username,pass);
-        ps=con.prepareStatement("INSERT INTO user VALUES(?,?,?)");
+        System.out.println("database connected");
+        ps=con.prepareStatement("INSERT INTO user VALUES(?,?,sha1(?))");
+        System.out.println("statement prepared");
         ps.setString(1,name);
         ps.setString(2,email);
         ps.setString(3,password);
+        System.out.println("values inserted");
         ps.executeUpdate();
+        System.out.println("statmenet eaxectured");
         ps=con.prepareStatement("select * from user");
         rs=ps.executeQuery();
         status= rs.next();
