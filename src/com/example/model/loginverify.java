@@ -14,14 +14,15 @@ public class loginverify {
 
     try{
       con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hiblog","root","rohit123");
-      ps = con.prepareStatement("select * from user where email=?");
-      ps.setString(2,email);
-      //ps.setString(3,pass);
+      ps = con.prepareStatement("select * from user where (email=? and password=?)");
+      ps.setString(1,email);
+      ps.setString(2,pass);
       rs = ps.executeQuery();
-      String e=rs.getString(2);
-      String p=rs.getString(3);
-      if(e.equals(email) && p.equals(pass))
-        verified=true;
+      //String e=rs.getString("email");
+      //String p=rs.getString("password");
+      //if(e.equals(email) && p.equals(pass))
+        //verified=true;
+      verified=rs.next();
     }catch (Exception e){
       System.out.println(e);
     }finally{
