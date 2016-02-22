@@ -15,7 +15,7 @@ public class loginverify {
     try{
       con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hiblog","root","rohit123");
       
-      ps = con.prepareStatement("select * from user where email=? and password=?");
+      ps = con.prepareStatement("select * from user where email=? and password=sha1(?)");
       ps.setString(1,email);
       ps.setString(2,pass);
       rs = ps.executeQuery();
