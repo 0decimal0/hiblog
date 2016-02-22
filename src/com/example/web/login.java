@@ -18,8 +18,9 @@ public class login extends HttpServlet{
       RequestDispatcher rd = request.getRequestDispatcher("profile.html");
       rd.forward(request,response);
     }
-    else
+    else{
       out.print("Sorry wrong email or password");
+    }
     out.close();
   }
 }
