@@ -10,7 +10,7 @@ public class duplicatelogin {
     boolean status=false;
 
     try{
-      con=DriverManager.getConnection("jdbc:mysql://localhost:3306/hiblog","root","rohit123");
+      con=DBConnection.getConnection();
       ps=con.prepareStatement("select * from user where email=?");
       ps.setString(1,email);
       rs=ps.executeQuery();

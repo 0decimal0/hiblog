@@ -13,7 +13,7 @@ public class loginverify {
     boolean verified=false;
 
     try{
-      con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hiblog","root","rohit123");
+      con = DBConnection.getConnection();
       
       ps = con.prepareStatement("select * from user where email=? and password=sha1(?)");
       ps.setString(1,email);

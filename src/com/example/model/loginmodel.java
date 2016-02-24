@@ -14,13 +14,13 @@ public class loginmodel{
     boolean status=false;
     boolean duplicatestatus=false;
 
-    String url = "jdbc:mysql://localhost:3306/hiblog";
+    /*String url = "jdbc:mysql://localhost:3306/hiblog";
     String username="root";
     String pass="rohit123";
-    String driver ="com.mysql.jdbc.Driver";
+    String driver ="com.mysql.jdbc.Driver";*/
 
     try{
-        con=DriverManager.getConnection(url,username,pass);
+        con=DBConnection.getConnection();
         System.out.println("database connected");
         ps=con.prepareStatement("INSERT INTO user VALUES(?,?,sha1(?))");
         System.out.println("statement prepared");
