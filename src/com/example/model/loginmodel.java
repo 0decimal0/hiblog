@@ -21,6 +21,7 @@ public class loginmodel{
 
     try{
         con=DBConnection.getConnection();
+        //con=DriverManager.getConnection(url,username,pass);
         System.out.println("database connected");
         ps=con.prepareStatement("INSERT INTO user VALUES(?,?,sha1(?))");
         System.out.println("statement prepared");
