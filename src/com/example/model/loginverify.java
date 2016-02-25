@@ -19,10 +19,6 @@ public class loginverify {
       ps.setString(1,email);
       ps.setString(2,pass);
       rs = ps.executeQuery();
-      //String e=rs.getString("email");
-      //String p=rs.getString("password");
-      //if(email.equals(e) && pass.equals(p))
-        //verified=true;
       verified=rs.next();
     }catch (Exception e){
       System.out.println(e);

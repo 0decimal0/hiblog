@@ -10,27 +10,17 @@ public class loginmodel{
     Statement stmt = null;
     PreparedStatement ps = null;
     ResultSet rs=null;
-    int count;
     boolean status=false;
-    boolean duplicatestatus=false;
-
-    /*String url = "jdbc:mysql://localhost:3306/hiblog";
-    String username="root";
-    String pass="rohit123";
-    String driver ="com.mysql.jdbc.Driver";*/
 
     try{
         con=DBConnection.getConnection();
-        //con=DriverManager.getConnection(url,username,pass);
-        System.out.println("database connected");
+
         ps=con.prepareStatement("INSERT INTO user VALUES(?,?,sha1(?))");
-        System.out.println("statement prepared");
         ps.setString(1,name);
         ps.setString(2,email);
         ps.setString(3,password);
-        System.out.println("values inserted");
+
         ps.executeUpdate();
-        System.out.println("statmenet eaxectured");
         ps=con.prepareStatement("select * from user");
         rs=ps.executeQuery();
         status= rs.next();
