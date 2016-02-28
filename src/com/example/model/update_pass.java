@@ -9,7 +9,7 @@ public class update_pass {
     Connection con=null;
     PreparedStatement ps=null;
     ResultSet rs=null;
-    boolean status=false;
+    //boolean status=false;
     String repass=generatepass.randomstring(8);
 
     try{
@@ -17,8 +17,7 @@ public class update_pass {
       ps=con.prepareStatement("update user set password=sha1(?) where email=?");
       ps.setString(1,repass);
       ps.setString(2,email);
-      rs=ps.executeQuery();
-      status=rs.next();
+      ps.executeUpdate();
       }catch(Exception e){
         System.out.println(e);
       }finally{
