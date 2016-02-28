@@ -2,17 +2,21 @@ package com.example.model;
 import java.io.*;
 import java.sql.*;
 
-public class duplicatelogin {
-  public static boolean duplicate(String email,String pass){
+import com.example.util.generatepass;
+
+public class update_pass {
+  public static String update(String email){
     Connection con=null;
     PreparedStatement ps=null;
     ResultSet rs=null;
     boolean status=false;
+    String repass=generatepass.randomstring(8);
 
     try{
       con=DBConnection.getConnection();
-      ps=con.prepareStatement("select * from user where email=?");
-      ps.setString(1,email);
+      ps=con.prepareStatement("update user set password=sha1(?) where email=?");
+      ps.setString(1,repass);
+      ps.setString(2,email);
       rs=ps.executeQuery();
       status=rs.next();
       }catch(Exception e){
@@ -40,6 +44,6 @@ public class duplicatelogin {
           }
         }
       }
-    return status;
+    return repass;
   }
 }

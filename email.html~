@@ -12,6 +12,9 @@
   .buttonholder{
     text-align:center;
   }
+/*  .panel-height{
+    height:300px;
+  }*/
   #accountForm{
     position:absolute;
     top:30%;
@@ -29,12 +32,12 @@
  <div class="panel panel-default">
    <div class="panel-body panel-height";>
        <div class="form-group">
-         <label class="col-xs-6 ">Email</label>
+         <label class="col-xs-6 ">VerifEmail</label>
          <div class="col-xs-10">
            <input type="text" class="form-control" name="email">
          </div>
        </div>
-       <div class="form-group">
+       <!--div class="form-group">
          <label class="col-xs-6">Password</label>
          <div class="col-xs-10">
            <input type="password" class="form-control" name="password">
@@ -44,15 +47,13 @@
          <label>
            <input type="checkbox">remember me
          </label>
-       </div>
+       </div-->
        <div class="buttonholder">
-         <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+         <button type="submit" class="btn btn-primary btn-block">Verify</button>
        </div>
-       <a  href="email.html">Forgot Password?</a>
    </div>
  </div>
- Not registered yet?  <a href="register.html"><strong>Create an account</strong></a>
-  </form>
+</form>
 
 </body>
 </html>
