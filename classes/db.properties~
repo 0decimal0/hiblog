@@ -1,0 +1,8 @@
+#Data_source_credentials
+db_url=jdbc:mysql://localhost:3306/hiblog
+db_user=root
+db_password=rohit123
+
+#Smtp_credentials
+smtp_user=sabgamehai@gmail.com
+smtp_
