@@ -15,7 +15,7 @@ public class login extends HttpServlet{
     String e = request.getParameter("email");
     String p = request.getParameter("password");
     if(loginverify.loginmatch(e,p)){
-      RequestDispatcher rd = request.getRequestDispatcher("profile.html");
+      RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
       rd.forward(request,response);
     }
     else{
