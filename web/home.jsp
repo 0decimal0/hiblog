@@ -23,8 +23,8 @@
     </div>
   </nav>
   <div class="container">
-    <form role="form" action="home.jsp">
-      <textarea class="form-control" rows="6" placeholder="What are you thinking?"></textarea>
+    <form role="form" method="post" action="blogpost">
+      <textarea class="form-control" id="txtarea" name="txtarea" rows="6" placeholder="What are you thinking?"></textarea>
       <div class="row">
       <div class="col-xs-12">
         <button type="submit" class="btn btn-primary"><b>post</b>
@@ -33,6 +33,24 @@
   </div>
   </form>
 </div>
+<script>
+  var id = document.getElementById(txtarea);
+  $.ajax({
+      url:'src/com/example/web/blogpost.java',
+      data:{
+      blog:id
+      },
+      type:'post'
+      });
+</script>
+<%@ page import com.example.model.update_post %>
+<% HttpSession session = request.getSession();
+   String email = session.getAttribute("email");
+   Blob blog = session.getAttribute("blog");
+   if(blog!=null){
+   update_post.update(email,blog);
+   }
+   %>
 </body>
 </html>
 
