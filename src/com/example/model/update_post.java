@@ -4,14 +4,15 @@ import java.sql.*;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import javax.servlet.*;
+import java.util.*;
 
 public class update_post {
-  public static String update(String email,String blog){
+  public static StringBuffer update(String email,String blog){
     Connection con=null;
     PreparedStatement ps=null;
     ResultSet rs=null;
+    StringBuffer buffer=null;
     boolean verified=false;
-    String post=null;
 
     try{
       con = DBConnection.getConnection();
@@ -19,11 +20,11 @@ public class update_post {
       ps.setString(1,email);
       ps.setString(2,blog);
       ps.executeUpdate();
-      ps = con.prepareStatement("select * from post where email=?");
+      ps=con.prepareStatement("select * from post where email=?");
       ps.setString(1,email);
-      //ps.setString(2,pass);
-      rs = ps.executeQuery();
-      post = rs.getString("blog");
+      rs= ps.executeQuery();
+      String post = rs.getString(2);
+      buffer = new StringBuffer(post);
       verified=rs.next();
     }catch (Exception e){
       System.out.println(e);
@@ -50,6 +51,6 @@ public class update_post {
         }
       }
     }
-    return post;
+    return buffer;
   }
 }

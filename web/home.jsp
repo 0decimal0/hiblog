@@ -34,13 +34,13 @@
   </form>
 </div>
 <%@ page import com.example.model.update_post %>
-<% PrintWriter out = response.getWriter(); 
+<% /*PrintWriter out = response.getWriter(); 
    HttpSession session = request.getSession();
-   String email = session.getAttribute("email");
+   //String email = session.getAttribute("email");
    String blog = session.getAttribute("blog");
    if(blog!=null){
-   out.print(update_post.update(email,blog));
-   }
+   out.print(blog);
+   }*/
    %>
 </body>
 </html>
