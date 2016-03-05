@@ -11,9 +11,9 @@ public class blogpost extends HttpServlet{
   public void doPost(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException{
     response.setContentType("text/html");
     PrintWriter out = response.getWriter();
+    
+    String blog = request.getParameter("txtarea");
     HttpSession session = request.getSession();
-    //session.setAttribute("blog",blog);
-    String blog =request.getParameter("id");
     session.setAttribute("blog",blog);
     response.sendRedirect("home.jsp");
 

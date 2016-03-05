@@ -16,10 +16,10 @@ public class login extends HttpServlet{
     String e = request.getParameter("email");
     String p = request.getParameter("password");
 
-    //HttpSession session = request.getSession();
-    //session.setAttribute("email",e);
-    Cookie ck = new Cookie("email",e);
-    response.addCookie(ck);
+    HttpSession session = request.getSession();
+    session.setAttribute("email",e);
+    //Cookie ck = new Cookie("email",e);
+    //response.addCookie(ck);
 
     if(loginverify.loginmatch(e,p)){
       RequestDispatcher rd = request.getRequestDispatcher("home.jsp");

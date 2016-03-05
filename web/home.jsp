@@ -33,22 +33,13 @@
   </div>
   </form>
 </div>
-<script>
-  var id = document.getElementById(txtarea);
-  $.ajax({
-      url:'src/com/example/web/blogpost.java',
-      data:{
-      blog:id
-      },
-      type:'post'
-      });
-</script>
 <%@ page import com.example.model.update_post %>
-<% HttpSession session = request.getSession();
+<% PrintWriter out = response.getWriter(); 
+   HttpSession session = request.getSession();
    String email = session.getAttribute("email");
-   Blob blog = session.getAttribute("blog");
+   String blog = session.getAttribute("blog");
    if(blog!=null){
-   update_post.update(email,blog);
+   out.print(update_post.update(email,blog));
    }
    %>
 </body>

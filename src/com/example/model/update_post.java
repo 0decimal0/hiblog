@@ -6,24 +6,24 @@ import javax.servlet.http.*;
 import javax.servlet.*;
 
 public class update_post {
-  public static Blob update(String email,Blob blog){
+  public static String update(String email,String blog){
     Connection con=null;
     PreparedStatement ps=null;
     ResultSet rs=null;
     boolean verified=false;
-    Blob post=null;
+    String post=null;
 
     try{
       con = DBConnection.getConnection();
       ps = con.prepareStatement("insert into post values(?,?)");
       ps.setString(1,email);
-      ps.setBlob(2,blog);
+      ps.setString(2,blog);
       ps.executeUpdate();
       ps = con.prepareStatement("select * from post where email=?");
       ps.setString(1,email);
       //ps.setString(2,pass);
       rs = ps.executeQuery();
-      post = rs.getBlob("blog");
+      post = rs.getString("blog");
       verified=rs.next();
     }catch (Exception e){
       System.out.println(e);
