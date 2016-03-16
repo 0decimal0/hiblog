@@ -8,9 +8,10 @@ public class duplicatelogin {
     PreparedStatement ps=null;
     ResultSet rs=null;
     boolean status=false;
+    DBConnection dbc = new DBConnection();
 
     try{
-      con=DBConnection.getConnection();
+      con=dbc.getConnection();
       ps=con.prepareStatement("select * from user where email=?");
       ps.setString(1,email);
       rs=ps.executeQuery();

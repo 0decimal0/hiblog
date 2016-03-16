@@ -13,9 +13,10 @@ public class update_post {
     ResultSet rs=null;
     StringBuffer buffer=null;
     boolean verified=false;
+    DBConnection dbc =new DBConnection();
 
     try{
-      con = DBConnection.getConnection();
+      con = dbc.getConnection();
       ps = con.prepareStatement("insert into post values(?,?)");
       ps.setString(1,email);
       ps.setString(2,blog);
