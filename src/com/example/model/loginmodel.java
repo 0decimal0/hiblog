@@ -4,6 +4,8 @@ import java.io.*;
 import java.sql.*;
 import javax.servlet.http.*;
 import javax.servlet.ServletException;
+import javax.naming.*;
+import org.apache.commons.dbcp2.*;
 public class loginmodel{
   public static boolean validate(String name,String email,String password){
     Connection con=null;
@@ -11,9 +13,12 @@ public class loginmodel{
     PreparedStatement ps = null;
     ResultSet rs=null;
     boolean status=false;
+    DBConnection dbc = new DBConnection();
 
     try{
-        con=DBConnection.getConnection();
+      //Context ctx = new InitialContext();
+      //bds=(BasicDataSource)ctx.lookup("jdbc/hiblog");
+        con=dbc.getConnection();
 
         ps=con.prepareStatement("INSERT INTO user VALUES(?,?,sha1(?))");
         ps.setString(1,name);

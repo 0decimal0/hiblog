@@ -11,9 +11,10 @@ public class loginverify {
     PreparedStatement ps=null;
     ResultSet rs=null;
     boolean verified=false;
+    DBConnection dbc = new DBConnection();
 
     try{
-      con = DBConnection.getConnection();
+      con = dbc.getConnection();
       
       ps = con.prepareStatement("select * from user where email=? and password=sha1(?)");
       ps.setString(1,email);
